@@ -119,7 +119,10 @@ ai::jetson  jetson_comms;
 // The Demo is symetrical, we send the same data and display the same status on both
 // manager and worker robots
 // Comment out the following definition to build for the worker robot
+
+//since this is the slave robot we do not define it as the manager 
 // #define  MANAGER_ROBOT    1
+
 
 #if defined(MANAGER_ROBOT)
 #pragma message("building for the manager")
@@ -128,6 +131,15 @@ ai::robot_link       link( PORT11, "robot_32456_1", linkType::manager );
 #pragma message("building for the worker")
 ai::robot_link       link( PORT11, "robot_32456_1", linkType::worker );
 #endif
+
+/***********************************************************************************************************
+ *                                          AUTONOMOUS PROGRAMMIG                                          *
+ *  DESCRIPTION: THE CODE IN VEX AI IS VERY UNIQUE, WE CAN INPUT SENSOR DATA INTO NEURAL NETWORKS TO       *
+ *   PROVIDE ARTIFICAL INTELLIGENCE TO CERTAIN TASKS. HOWEVER, WE CAN ALSO USE PRE-PROGRAMMED ROUTES AND   *
+ *  COMMANDS TO GUIDE THE ROBOT. THEREFORE IT IS IMPORTANT TO DISCLOSE THAT THIS REP USES JAR TEMPLATE'S   *
+ * CHASSIS COMMANDS FOR PRE-PROGRAMMED ACTIONS AND VEX AI'S SMARTDRIVE FOR AI BASED ACTIONS. IT IS CRUCIAL *
+ *            THE PROGRAMMER KNOWS THE DIFFERENCE BETWEEN PRE-PROGRAMMED AND AI BASED ACTIONS.             *
+ ***********************************************************************************************************/
 
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
@@ -138,6 +150,13 @@ ai::robot_link       link( PORT11, "robot_32456_1", linkType::worker );
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
+
+/**********************************************************************************
+ *                             ISOLATION PERIOD NOTES                             *
+ * DESCRIPTION: WE WILL IMPLEMENT PRE PROGRAMMED ROUTES FOR THE ISOLATION PERIOD. *
+ *         THEREFORE, CHASSIS WILL BE USED A BIT IN THIS SECTION OF CODE.         *
+ *      HOWEVER, THE MAIN FOCUS IN THE INTERACTION PERIOD WILL BE AI BASED.       *
+ **********************************************************************************/
 
 void auto_Isolation(void) {
   // Calibrate GPS Sensor
