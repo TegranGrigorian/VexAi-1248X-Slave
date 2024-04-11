@@ -9,6 +9,13 @@
 
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // ---- END VEXCODE CONFIGURED DEVICES ----
+/*----------------------------------------------------------------------------*/
+/*                           PAUSE, READ THIS!                                */
+/*THIS ROBOT IS THE MASTER ROBOT IN THE ROBOT TO ROBOT COMMUNICATION HANDSHAKE*/
+/*CODE FROM THIS ROBOT WILL BE DIFFERENT FROM THE SLAVE'S CODE                */
+/*FUTHERMORE, THIS ROBOT WILL SEND INSTRUCTIONS TO THE SLAVE ROBOT IF ORDERED */
+/*--------------------------------------------------------------------------- */
+
 #include "ai_functions.h"
 
 using namespace vex;
@@ -138,6 +145,7 @@ void auto_Isolation(void) {
   wait(1,sec);
   // Finds and moves robot to position of closest green triball
   getObject();
+  
   // Intakes the ball
   double rot = Arm.position(rotationUnits::deg);
   intake(rot - 100, 1);
@@ -146,6 +154,7 @@ void auto_Isolation(void) {
   goToGoal(0);
   // Scores tri-ball in blue goal
   dump(rot);
+  
 
 }
 

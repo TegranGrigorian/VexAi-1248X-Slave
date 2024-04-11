@@ -31,7 +31,7 @@
 #include "JAR-Template/drive.h"
 #include "JAR-Template/util.h"
 #include "JAR-Template/PID.h"
-
+//i love trying to fix an error for 15 minutes cuz i forgor to include the jar template includes in vex.h
 #define waitUntil(condition)                                                   \
   do {                                                                         \
     wait(5, msec);                                                             \
