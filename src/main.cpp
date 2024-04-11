@@ -9,6 +9,14 @@
 
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // ---- END VEXCODE CONFIGURED DEVICES ----
+
+/*---------------------------------------------------------------------------*/
+/*                           PAUSE, READ THIS!                               */
+/*THIS ROBOT IS THE SLAVE ROBOT IN THE ROBOT TO ROBOT COMMUNICATION HANDSHAKE*/
+/*CODE FROM THIS ROBOT WILL BE DIFFERENT FROM THE MASTER'S CODE              */
+/*FUTHERMORE, THIS ROBOT WILL FOLLOW INSTRUCTIONS FROM THE MASTER IF ORDERED */
+/*---------------------------------------------------------------------------*/
+
 #include "ai_functions.h"
 
 using namespace vex;
@@ -111,7 +119,7 @@ ai::jetson  jetson_comms;
 // The Demo is symetrical, we send the same data and display the same status on both
 // manager and worker robots
 // Comment out the following definition to build for the worker robot
-#define  MANAGER_ROBOT    1
+// #define  MANAGER_ROBOT    1
 
 #if defined(MANAGER_ROBOT)
 #pragma message("building for the manager")
@@ -146,7 +154,7 @@ void auto_Isolation(void) {
   goToGoal(0);
   // Scores tri-ball in blue goal
   dump(rot);
-
+  
 }
 
 
