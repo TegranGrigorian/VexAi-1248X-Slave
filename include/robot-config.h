@@ -2,14 +2,24 @@ using namespace vex;
 
 extern brain Brain;
 
-extern motor leftDrive;
-extern motor rightDrive;
+
 extern gps GPS;
 extern smartdrive Drivetrain;
-extern motor Arm;
-extern motor Intake;
 extern controller Controller;
-
+extern motor leftIntake;
+extern motor rightIntake;
+extern motor leftFront;
+extern motor leftMiddle;
+extern motor leftBack;
+extern motor rightMiddle;
+extern motor rightFront;
+extern motor rightBack;
+void intakePossesion();
+void intakeStop();
+void intakeOut();
+void driveForTime();
+void outttake();
+void intake();
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  *

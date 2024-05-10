@@ -12,7 +12,6 @@
 
 #include <vex.h>
 #include <robot-config.h>
-
 using namespace vex;
 
 // Calculates the distance to a given target (x, y)

@@ -163,10 +163,11 @@ void getObject(){
         Drivetrain.turnFor(45, rotationUnits::deg, 50, velocityUnits::pct);
         target = findTarget(0);
     }
-    double rot = Arm.position(rotationUnits::deg);
-    intake(rot-1200, 1205);
+    leftIntake.spin(directionType::fwd,100,percent);
+    rightIntake.spin(directionType::fwd,100,percent);
     // Move to the detected target's position
     moveToPosition(target.mapLocation.x*100, target.mapLocation.y*100);
+    intakePossesion();
 }
 
 // Function to move to a goal based on the color (0 for blue, 1 for red)
@@ -183,17 +184,19 @@ void goToGoal(int color){
 }
 
 // Function to control the intake mechanism
-void intake(double rot, int num){
-    Arm.spinTo(rot, rotationUnits::deg, 75, velocityUnits::pct, true);
-    Intake.spinFor(num, rotationUnits::rev, 40, velocityUnits::pct, false);
-}
+// void intake(double rot, int num){
+//     Arm.spinTo(rot, rotationUnits::deg, 75, velocityUnits::pct, true);
+//     Intake.spinFor(num, rotationUnits::rev, 40, velocityUnits::pct, false);
+// }
 
 // Function to dump the objects
 void dump(double rot){
-    Intake.spinFor(-3.5, rotationUnits::rev, 50, velocityUnits::pct, true);
+    
+    // Intake.spinFor(-3.5, rotationUnits::rev, 50, velocityUnits::pct, true);
     Drivetrain.driveFor(-5, distanceUnits::cm, 30, velocityUnits::pct);
     Drivetrain.driveFor(10, distanceUnits::cm);
-    Arm.spinTo(rot+200, rotationUnits::deg, 75, velocityUnits::pct, true);
+    
+    // Arm.spinTo(rot+200, rotationUnits::deg, 75, velocityUnits::pct, true);
     Drivetrain.drive(directionType::fwd, 30, velocityUnits::pct);
     wait(2.5, sec);
     Drivetrain.drive(directionType::rev, 30, velocityUnits::pct);
