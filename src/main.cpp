@@ -131,7 +131,6 @@ ai::jetson  jetson_comms;
 //since this is the slave robot we do not define it as the manager 
 // #define  MANAGER_ROBOT    1
 
-
 #if defined(MANAGER_ROBOT)
 #pragma message("building for the manager")
 ai::robot_link       link( PORT11, "robot_1248x", linkType::manager );
@@ -211,6 +210,7 @@ bool auto_started = false;
 void pre_auton(void) {
   #pragma building the pre autonomous
   printf("preautonomous has begun");
+  printf("babdf");
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
   default_constants();
